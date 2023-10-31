@@ -9,6 +9,7 @@ const plantList = [
 		id: '1ed',
 		light: 2,
 		water: 3,
+		cover: 'monstera',
 		price: 15
 	},
 	{
@@ -17,6 +18,7 @@ const plantList = [
 		id: '2ab',
 		light: 3,
 		water: 1,
+		cover: 'lyrata',
 		price: 16
 	},
 
@@ -26,6 +28,8 @@ const plantList = [
 		id: '3sd',
 		light: 1,
 		water: 2,
+		cover: 'pothos',
+
 		price: 9
 	},
 	{
@@ -34,6 +38,8 @@ const plantList = [
 		id: '4kk',
 		light: 2,
 		water: 3,
+		cover: 'calathea',
+
 		price: 20
 	},
 	{
@@ -42,6 +48,7 @@ const plantList = [
 		id: '5pl',
 		light: 3,
 		water: 1,
+		cover: 'olivier',
 		price: 25
 	},
 
@@ -51,6 +58,7 @@ const plantList = [
 		id: '8fp',
 		light: 2,
 		water: 1,
+		cover: 'cactus',
 		price: 6
 	},
 	{
@@ -59,6 +67,7 @@ const plantList = [
 		id: '7ie',
 		light: 2,
 		water: 3,
+		cover: 'basil',
 		price: 5
 	},
 	{
@@ -67,6 +76,7 @@ const plantList = [
 		id: '9vn',
 		light: 2,
 		water: 1,
+		cover: 'succulent',
 		price: 8
 	},
 
@@ -76,6 +86,7 @@ const plantList = [
 		id: '6uo',
 		light: 2,
 		water: 2,
+		cover: 'mint',
 		price: 4
 	}
 ];
@@ -91,8 +102,8 @@ connection.connect();
 
 // Loop through each plant object and insert data into the database
 plantList.forEach(plant => {
-  const queryString = 'INSERT INTO plantes (name, category, id, light, water, price) VALUES (?, ?, ?, ?, ?, ?)';
-  const values = [plant.name, plant.category, plant.id, plant.light, plant.water, plant.price];
+  const queryString = 'INSERT INTO plantes (name, category, id, light, water,cover, price) VALUES (?, ?, ?, ?, ?, ?, ?)';
+  const values = [plant.name, plant.category, plant.id, plant.light, plant.water,plant.cover, plant.price];
 
   connection.query(queryString, values, (error, results, fields) => {
     if (error) {
